@@ -63,7 +63,7 @@
     <checkstyle.version>10.11.0</checkstyle.version>
     <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
     <!-- We support Guava versions 19.0 and higher. -->
-    <guava.version>31.1-jre</guava.version>
+    <guava.version>32.1.1-jre</guava.version>
     <hamcrest.version>2.2</hamcrest.version>
     <junit-jupiter.version>5.9.3</junit-jupiter.version>
     <maven-checkstyle-plugin.version>3.2.2</maven-checkstyle-plugin.version>
