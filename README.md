@@ -19,6 +19,8 @@ License.
 {% endcomment %}
 -->
 [![Build Status](https://github.com/julianhyde/empty/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/julianhyde/empty/actions?query=branch%3Amain)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.hydromatic/empty/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.hydromatic/empty)
+[![javadoc](https://javadoc.io/badge2/net.hydromatic/empty/javadoc.svg)](https://javadoc.io/doc/net.hydromatic/empty)
 
 # Empty
 
@@ -46,13 +48,13 @@ You need Java (8 or higher) and Git.
 ```bash
 $ git clone git://github.com/julianhyde/empty.git
 $ cd empty
-$ ./mvnw compile
+$ ./mvnw clean verify
 ```
 
 On Windows, the last line is
 
 ```bash
-> mvnw install
+> mvnw clean verify
 ```
 
 On Java versions less than 11, you should add parameters
