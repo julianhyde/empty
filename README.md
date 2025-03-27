@@ -18,6 +18,7 @@ language governing permissions and limitations under the
 License.
 {% endcomment %}
 -->
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Build Status](https://github.com/julianhyde/empty/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/julianhyde/empty/actions?query=branch%3Amain)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.hydromatic/empty/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.hydromatic/empty)
 [![javadoc](https://javadoc.io/badge2/net.hydromatic/empty/javadoc.svg)](https://javadoc.io/doc/net.hydromatic/empty)
