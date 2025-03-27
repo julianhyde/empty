@@ -8,23 +8,53 @@ Make sure that `./mvnw clean install site` runs on JDK 8, 11 and 17
 on Linux, macOS and Windows.
 Also check [Travis CI](https://travis-ci.org/julianhyde/empty).
 
-Update the [release history](HISTORY.md),
-the version number at the bottom of [README](README.md),
+Upgrade dependencies to their latest release: run
+```bash
+./mvnw versions:update-properties
+```
+and commit the modified `pom.xml`.
+
+Write release notes. Run the
+[relNotes](https://github.com/julianhyde/share/blob/master/tools/relNotes)
+script and append the output to [HISTORY.md](HISTORY.md).
+
+Update the version number at the bottom of [README](README.md),
 and the copyright date in [NOTICE](NOTICE).
 
-```
-./mvnw clean
-./mvnw release:clean
+Switch to JDK 21.
+
+Check that the sandbox is clean:
+
+```bash
 git clean -nx
-git clean -fx
-read -s GPG_PASSPHRASE
-./mvnw -Prelease -Dgpg.passphrase=${GPG_PASSPHRASE} release:prepare
-./mvnw -Prelease -Dgpg.passphrase=${GPG_PASSPHRASE} release:perform
+mvn clean
 ```
 
-Then go to [Sonatype](https://oss.sonatype.org/#stagingRepositories),
-log in, close the repository, and release.
+Prepare:
 
-Make sure that the [site](http://www.hydromatic.net/empty/) has been updated.
+```bash
+export GPG_TTY=$(tty)
+mvn -Prelease -DreleaseVersion=x.y.0 -DdevelopmentVersion=x.(y+1).0-SNAPSHOT release:prepare
+```
 
-[Announce the release](https://twitter.com/julianhyde/status/622842100736856064).
+Perform:
+
+```bash
+mvn -Prelease -DskipTests release:perform
+```
+
+Stage the release:
+* Go to https://oss.sonatype.org and log in.
+* Under "Build Promotion", click on "Staging Repositories".
+* Select the line "empty-nnnn", and click "Close". You might need to
+  click "Refresh" a couple of times before it closes.
+
+After testing, publish the release:
+* Go to https://oss.sonatype.org and log in.
+* Under "Build Promotion", click on "Staging Repositories".
+* Select the line "empty-nnnn", and click "Release".
+
+Update the [github release list](https://github.com/hydromatic/morel/releases).
+
+Wait a couple of hours for the artifacts to appear on Maven central,
+and [announce the release](https://x.com/julianhyde/status/622842100736856064).

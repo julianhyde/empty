@@ -3,6 +3,9 @@
 # Change 'filtex' to your desired project name,
 # run this script,
 # then delete it.
+#
+# Also, update dependencies:
+#  ./mvnw versions:update-properties
 
 git ls-files |
     grep -v checker.xml |
